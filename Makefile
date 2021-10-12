@@ -6,43 +6,44 @@
 #    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 16:53:12 by oozsertt          #+#    #+#              #
-#    Updated: 2021/10/08 17:31:06 by oozsertt         ###   ########.fr        #
+#    Updated: 2021/10/11 16:32:50 by oozsertt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so-long
-LIB_NAME = libft.a
+FT_NAME = libft.a
+MLX_NAME = libmlx.a
 
 SRCS_PATH = .
 
 OBJ_DIR = $(BUILD)/obj
 
-LIB_DIR = lib/Libft
+LIB_DIR =	lib/Libft lib/mlx
+FT_DIR =	lib/Libft
+MLX_DIR =	lib/mlx
 
 INC_DIR = $(shell find includes -type d) \
-				$(shell find lib/Libft/includes -type d)
+				$(shell find lib/Libft/includes -type d) \
+				$(shell find lib/mlx -type d)
 
 BUILD = .build
-
 
 SRCS = $(wildcard *.c)
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
-
-FLAGS = -Wall -Werror -Wextra
-
+MFLAGS =	-framework OpenGL -framework AppKit
+CFLAGS =	-Wall -Werror -Wextra
 IFLAGS		=	$(foreach dir, $(INC_DIR), -I $(dir))
-
 
 all : $(NAME)
 
 $(NAME) : install $(OBJS)
-	@gcc $(FLAGS) $(OBJS) $(LIB_DIR)/$(LIB_NAME) -o $(NAME)
+	@gcc $(CFLAGS) $(OBJS) $(MFLAGS) $(FT_DIR)/$(FT_NAME) $(MLX_DIR)/$(MLX_NAME) -o $(NAME)
 	@echo "Executable successfully created\n"
 
 $(OBJ_DIR)/%.o : $(SRCS_PATH)/%.c | $(BUILD)
-	@gcc $(FLAGS) -c $< $(IFLAGS) -o $@
+	@gcc $(CFLAGS) -c $< $(IFLAGS) -o $@
 
 $(BUILD):
 	@mkdir $@ $(OBJ_DIR)
@@ -54,6 +55,9 @@ install:
 
 install-fclean:
 	@$(foreach dir, $(LIB_DIR), make -C $(dir) fclean;)
+
+install-clean:
+	@$(foreach dir, $(LIB_DIR), make -C $(dir) clean;)
 
 install-re:
 	@$(foreach dir, $(LIB_DIR), make -C $(dir) re;)
