@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 15:05:52 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/13 17:50:08 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/10/13 16:46:12 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/10/13 17:45:28 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef DEFINE_H
+# define DEFINE_H
 
-# define DEBUG printf("ICI\n");
-
-// printf
-# include <stdio.h>
-
-// open read write
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-
-// lib
-# include "libft.h"
-
-# include "define.h"
-# include "struct_parsing_map.h"
+# define TRUE 1
+# define FALSE 0
+# define ERROR -1
+# define SUCCESS 0
+typedef int t_bool;
 
 #endif

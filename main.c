@@ -6,33 +6,75 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 19:41:00 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/11 17:20:52 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/13 18:12:30 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "so_long.h"
 #include <mlx.h>
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
-int	main(void)
+t_bool	check_arg_format(char *str)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
+	int	i;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	if (str[--i] != 'r')
+		return (ERROR);
+	if (str[--i] != 'e')
+		return (ERROR);
+	if (str[--i] != 'b')
+		return (ERROR);
+	if (str[--i] != '.')
+		return (ERROR);
+	if (i == 0)
+		return (ERROR);
+	else
+		return (SUCCESS);
 }
+
+t_bool	check_file(char *str)
+{
+	int	fd;
+
+	fd = open(str, O_RDONLY);
+	if (fd == -1)
+	{
+		close(fd);
+		return (ERROR);
+	}
+	fd = open(str, O_DIRECTORY);
+	if (fd != -1)
+	{
+		close(fd);
+		return (ERROR);
+	}
+	return (SUCCESS);
+}
+
+int main(int ac, char **av)
+{
+	// number of arguments
+	if (ac != 2)
+	{
+		printf("Error\nInvalid number of arguments\n");
+		exit(EXIT_FAILURE);
+	}
+
+	// .ber format
+	if (check_arg_format(av[1]) == ERROR)
+	{
+		printf("Error\nFile is not in .ber format\n");
+		exit(EXIT_FAILURE);
+	}
+	
+	// file already created, is a directory
+	if (check_file(av[1]) == ERROR)
+	{
+		printf("Error\nInvalid file");
+		exit(EXIT_FAILURE);
+	}
+	return (SUCCESS);
+}
+
