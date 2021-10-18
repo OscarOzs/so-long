@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:01:28 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/07 18:17:56 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/18 18:38:39 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,9 @@
 # define FALSE 0
 # define ERROR -1
 
+# include "libft.h"
+
 int		get_next_line(int fd, char **line);
-void	*ft_memset(void *b, int c, size_t len);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *s1);
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlen(const	char *s);
 int		fill_line(char **line, char *buffer, char **stock);
 int		get_line(char **line, char **stock, int *eof);
 
