@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map_check.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 19:41:00 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/18 18:54:44 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/10/18 16:55:48 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/10/18 18:50:40 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef MAP_CHECK_H
+# define MAP_CHECK_H
 
-int main(int ac, char **av)
-{
-	if (arg_check(ac, av[1]) == ERROR)
-		exit(EXIT_FAILURE);
-	return (SUCCESS);
-}
+t_bool	arg_check(int ac, char *str);
+t_bool	map_check(t_pdata *map, char *file);
 
-// note du 18 octobre : algo pour check map done sur telephone
-// probleme avec appel de gnl autrepart que dans main
+#endif
