@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 19:30:21 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/18 18:37:29 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/19 17:26:49 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <stdio.h>
 
 # include "get_next_line.h"
 
@@ -49,5 +50,6 @@ int		ft_toupper(int c);
 char	*ft_utoa_base_uppercase(unsigned int n, char *base);
 char	*ft_utoa_base(unsigned int n, char *base);
 char	*ft_utoa(unsigned int n);
+void	ft_malloc_failed(char *str);
 
 #endif

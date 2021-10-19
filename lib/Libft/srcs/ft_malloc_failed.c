@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_malloc_failed.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 19:41:00 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/19 20:22:42 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/10/19 17:23:04 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/10/19 17:24:15 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int main(int ac, char **av)
+void	ft_malloc_failed(char *str)
 {
-	if (arg_check(ac, av[1]) == ERROR)
+	if (str == NULL)
+	{
+		printf("Error\nMalloc failed");
 		exit(EXIT_FAILURE);
-	return (SUCCESS);
+	}
 }
-// dans map_check.c, agencer les fonctions pour la fonction cross_check

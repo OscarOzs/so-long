@@ -6,7 +6,7 @@
 #    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 16:53:12 by oozsertt          #+#    #+#              #
-#    Updated: 2021/10/18 17:10:32 by oozsertt         ###   ########.fr        #
+#    Updated: 2021/10/19 14:04:58 by oozsertt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRCS = $(wildcard *.c)
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 MFLAGS =	-framework OpenGL -framework AppKit
-CFLAGS =	-Wall -Werror -Wextra
+CFLAGS =	
+# -Wall -Werror -Wextra
 IFLAGS		=	$(foreach dir, $(INC_DIR), -I $(dir))
 
 all : $(NAME)

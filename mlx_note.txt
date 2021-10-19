@@ -29,3 +29,7 @@
 // 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 // 	mlx_loop(data.mlx);
 // }
+
+
+
+DO NOT FORGET TO CHANGE GNL FUNCTION, HAVE TO EXIT AND PRINTF IN CASE OF RETURN -1

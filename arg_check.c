@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:49:03 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/18 18:51:35 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:45:44 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static t_bool	check_file(char *str)
 	return (SUCCESS);
 }
 
-static void	set_map_struct(t_pdata *map)
+static void	set_map_struct(t_mcdata *map)
 {
 	map->line_len = 0;
 	map->line_nbr = 0;
@@ -64,7 +64,7 @@ static void	set_map_struct(t_pdata *map)
 
 t_bool	arg_check(int ac, char *str)
 {
-	t_pdata	map;
+	t_mcdata	map;
 
 	if (ac != 2)
 	{

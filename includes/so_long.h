@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:05:52 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/18 18:52:19 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:43:59 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
+// define
 # include "define.h"
-# include "struct_parsing_map.h"
+
+// struct
+# include "struct_map_check.h"
 
 // map check
 # include "map_check.h"
