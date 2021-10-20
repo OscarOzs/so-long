@@ -6,7 +6,7 @@
 #    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 16:53:12 by oozsertt          #+#    #+#              #
-#    Updated: 2021/10/19 14:04:58 by oozsertt         ###   ########.fr        #
+#    Updated: 2021/10/20 19:03:18 by oozsertt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so-long
 FT_NAME = libft.a
 MLX_NAME = libmlx.a
 
-SRCS_PATH = .
+SRCS_PATH =	$(shell find srcs -type d)
 
 OBJ_DIR = $(BUILD)/obj
 
@@ -28,13 +28,15 @@ INC_DIR = $(shell find includes -type d) \
 
 BUILD = .build
 
-SRCS = $(wildcard *.c)
+vpath %.c $(foreach dir, $(SRCS_PATH), $(dir):)
+
+SRCS = 	$(foreach dir, $(SRCS_PATH), $(foreach file, $(wildcard $(dir)/*.c), $(notdir $(file))))
+# SRCS = $(wildcard *.c)
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 MFLAGS =	-framework OpenGL -framework AppKit
-CFLAGS =	
-# -Wall -Werror -Wextra
+CFLAGS =	-Wall -Werror -Wextra
 IFLAGS		=	$(foreach dir, $(INC_DIR), -I $(dir))
 
 all : $(NAME)
@@ -43,7 +45,7 @@ $(NAME) : install $(OBJS)
 	@gcc $(CFLAGS) $(OBJS) $(MFLAGS) $(FT_DIR)/$(FT_NAME) $(MLX_DIR)/$(MLX_NAME) -o $(NAME)
 	@echo "Executable successfully created\n"
 
-$(OBJ_DIR)/%.o : $(SRCS_PATH)/%.c | $(BUILD)
+$(OBJ_DIR)/%.o : %.c | $(BUILD) # add $(SRCS_PATH)/ before %.c
 	@gcc $(CFLAGS) -c $< $(IFLAGS) -o $@
 
 $(BUILD):
