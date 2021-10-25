@@ -6,17 +6,11 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 18:23:14 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/20 18:01:32 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/25 16:15:01 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// final check
-		// if (check_pec_nbr(map) == ERROR)
-		// 	return (ERROR);
-		// if (check_line_and_column_nbr(map) == ERROR)
-		// 	return (ERROR);
 
 static t_bool	is_map_square(int fd)
 {
