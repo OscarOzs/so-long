@@ -6,7 +6,7 @@
 #    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 16:53:12 by oozsertt          #+#    #+#              #
-#    Updated: 2021/10/26 17:37:19 by oozsertt         ###   ########.fr        #
+#    Updated: 2021/10/26 18:49:03 by oozsertt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,17 +35,18 @@ SRCS = 	$(foreach dir, $(SRCS_PATH), $(foreach file, $(wildcard $(dir)/*.c), $(n
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 MFLAGS =	-framework OpenGL -framework AppKit
-CFLAGS =	-Wall -Werror -Wextra
+CFLAGS =	
+# -Wall -Werror -Wextra
 IFLAGS		=	$(foreach dir, $(INC_DIR), -I $(dir))
 
 all : $(NAME)
 
 $(NAME) : install $(OBJS)
-	@gcc $(CFLAGS) $(OBJS) $(MFLAGS) $(FT_DIR)/$(FT_NAME) $(MLX_DIR)/$(MLX_NAME) -o $(NAME)
+	@cc $(CFLAGS) $(OBJS) $(MFLAGS) $(FT_DIR)/$(FT_NAME) $(MLX_DIR)/$(MLX_NAME) -o $(NAME)
 	@echo "Executable successfully created\n"
 
 $(OBJ_DIR)/%.o : %.c | $(BUILD) # add $(SRCS_PATH)/ before %.c
-	@gcc $(CFLAGS) -c $< $(IFLAGS) -o $@
+	@cc $(CFLAGS) -c $< $(IFLAGS) -o $@
 
 $(BUILD):
 	@mkdir $@ $(OBJ_DIR)
