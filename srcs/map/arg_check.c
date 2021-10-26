@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:49:03 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/20 18:50:24 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/26 14:54:55 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,20 @@ static t_bool	check_file(char *str)
 		close(fd);
 		return (ERROR);
 	}
+	close(fd);
 	fd = open(str, O_DIRECTORY);
 	if (fd != -1)
 	{
 		close(fd);
 		return (ERROR);
 	}
+	close(fd);
 	return (SUCCESS);
 }
 
-static void	set_map_struct(t_mcdata *map)
+static void	set_map_struct(t_data *map)
 {
+	map->map = NULL;
 	map->line_len = 0;
 	map->line_nbr = 0;
 	map->column_nbr = 0;
@@ -62,10 +65,8 @@ static void	set_map_struct(t_mcdata *map)
 	map->collectibles_nbr = 0;
 }
 
-t_bool	arg_check(int ac, char *str)
+t_bool	arg_check(int ac, char *str, t_data *map)
 {
-	t_mcdata	map;
-
 	if (ac != 2)
 	{
 		printf("Error\nInvalid number of arguments\n");
@@ -81,8 +82,8 @@ t_bool	arg_check(int ac, char *str)
 		printf("Error\nInvalid file");
 		return (ERROR);
 	}
-	set_map_struct(&map);
-	if (map_check(&map, str) == ERROR)
+	set_map_struct(map);
+	if (map_check(map, str) == ERROR)
 	{
 		printf("Error\nInvalid map");
 		return (ERROR);

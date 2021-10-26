@@ -6,65 +6,61 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 18:23:14 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/25 16:15:01 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:37:36 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static t_bool	is_map_square(int fd)
+static t_bool	is_map_square(t_data *map)
 {
-	char	*line;
-	int		ret;
 	size_t	line_len;
-	int		count;
+	int		i;
 
-	ret = -1;
 	line_len = 0;
-	count = 0;
-	while (ret != 0)
+	i = 0;
+	while (map->map[i] != NULL)
 	{
-		ret = get_next_line(fd, &line);
-		if (count != 0)
+		if (i != 0)
 		{
-			if (line_len != ft_strlen(line))
+			if (ft_strlen(map->map[i]) != line_len)
 				return (ERROR);
 		}
-		line_len = ft_strlen(line);
-		count++;
+		line_len = ft_strlen(map->map[i]);
+		i++;
 	}
 	return (SUCCESS);
 }
 
-static t_bool	is_char(t_mcdata *mapdata, char c)
+static t_bool	is_char(t_data *map, char c)
 {
 	if (c == 'P' || c == 'E' || c == 'C'
 		|| c == '0')
 	{
 		if (c == 'P')
-			mapdata->position_nbr++;
+			map->position_nbr++;
 		else if (c == 'E')
-			mapdata->exit_nbr++;
+			map->exit_nbr++;
 		else if (c == 'C')
-			mapdata->collectibles_nbr++;
+			map->collectibles_nbr++;
 	}
 	else if (c != '1')
 		return (ERROR);
 	return (SUCCESS);
 }
 
-static t_bool	check_char(char **map, t_mcdata *mapdata)
+static t_bool	check_char(t_data *map)
 {
 	int		i;
 	int		j;
 
 	i = 0;
-	while (map[i] != NULL)
+	while (map->map[i] != NULL)
 	{
 		j = 0;
-		while (map[i][j] != '\0')
+		while (map->map[i][j] != '\0')
 		{
-			if (is_char(mapdata, map[i][j]) == ERROR)
+			if (is_char(map, map->map[i][j]) == ERROR)
 				return (ERROR);
 			j++;
 		}
@@ -73,37 +69,23 @@ static t_bool	check_char(char **map, t_mcdata *mapdata)
 	return (SUCCESS);
 }
 
-static t_bool	cross_check_char(int fd, t_mcdata *mapdata, char *file)
-{
-	char	**map;
-
-	map = NULL;
-	if (is_map_square(fd) == ERROR)
-		return (ERROR);
-	if (ft_open_rdonly(&fd, file) == ERROR)
-		return (ERROR);
-	map = setup_cross_check(fd, map, file, mapdata);
-	if (check_char(map, mapdata) == ERROR)
-		return (ERROR);
-	if (cross_check(map, mapdata) == ERROR)
-		return (ERROR);
-	return (SUCCESS);
-}
-
-t_bool	map_check(t_mcdata *mapdata, char *file)
+t_bool	map_check(t_data *map, char *file)
 {
 	int		fd;
 
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
-	{
-		close(fd);
+	if (ft_open_rdonly(&fd, file) == ERROR)
 		return (ERROR);
-	}
-	if (cross_check_char(fd, mapdata, file) == ERROR)
-		return (ERROR);
-	if (final_check(mapdata) == ERROR)
+	map = create_map(fd, file, map);
+	if (map == NULL)
 		return (ERROR);
 	close(fd);
+	if (is_map_square(map) == ERROR)
+		return (ERROR);
+	if (check_char(map) == ERROR)
+		return (ERROR);
+	if (cross_check(map) == ERROR)
+		return (ERROR);
+	if (final_check(map) == ERROR)
+		return (ERROR);
 	return (SUCCESS);
 }

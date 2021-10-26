@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_check.h                                        :+:      :+:    :+:   */
+/*   final_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 16:55:48 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/20 18:00:48 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/10/20 17:54:10 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/10/26 14:26:14 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_CHECK_H
-# define MAP_CHECK_H
+#include "so_long.h"
 
-t_bool	arg_check(int ac, char *str);
-t_bool	map_check(t_mcdata *map, char *file);
-char	**setup_cross_check(int fd, char **map, char *file, t_mcdata *mapdata);
-t_bool	cross_check(char **map, t_mcdata *mapdata);
-t_bool final_check(t_mcdata *mapdata);
-
-#endif
+t_bool	final_check(t_data *map)
+{
+	if (map->exit_nbr >= 1 && map->position_nbr == 1
+		&& map->collectibles_nbr >= 1 && map->line_len >= 3
+		&& map->line_nbr >= 3)
+		return (SUCCESS);
+	return (ERROR);
+}

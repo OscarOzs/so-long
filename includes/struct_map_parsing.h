@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_final_check.c                                  :+:      :+:    :+:   */
+/*   struct_map_check.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/20 17:54:10 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/20 18:02:47 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/10/13 16:35:34 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/10/25 20:00:02 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef STRUCT_MAP_CHECK_H
+# define STRUCT_MAP_CHECK_H
 
-t_bool final_check(t_mcdata *mapdata)
+typedef struct	s_map_data
 {
-	if (mapdata->exit_nbr >= 1 && mapdata->position_nbr == 1
-		&& mapdata->collectibles_nbr >= 1 && mapdata->line_len >= 3
-		&& mapdata->line_nbr >= 3)
-		return (SUCCESS);
-	return (ERROR);
-}
+	char	**map;
+	int	line_len;
+	int	line_nbr;
+	int	column_nbr;
+	int	position_nbr;
+	int	exit_nbr;
+	int	collectibles_nbr;
+}				t_data;
+
+#endif

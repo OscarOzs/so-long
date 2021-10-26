@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:05:52 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/19 14:43:59 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/25 20:04:40 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,16 @@
 
 // lib
 # include "libft.h"
-
-// printf
-# include <stdio.h>
-
-// open read write
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
+# include "mlx.h"
 
 // define
 # include "define.h"
 
 // struct
-# include "struct_map_check.h"
+# include "struct_map_parsing.h"
+
 
 // map check
-# include "map_check.h"
+# include "map_parsing.h"
 
 #endif

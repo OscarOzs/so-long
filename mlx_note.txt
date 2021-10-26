@@ -1,35 +1,49 @@
-// typedef struct	s_data
-// {
-// 	void	*img;
-// 	char	*addr;
-// 	int		bits_per_pixel;
-// 	int		line_length;
-// 	int		endian;
-// 	void	*mlx;
-// 	void	*win;
-// }				t_data;
+typedef struct	s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	void	*mlx;
+	void	*win;
+}				t_data;
 
-// void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-// {
-// 	char	*dst;
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
 
-// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-// 	*(unsigned int*)dst = color;
-// }
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
 
-// int	main(void)
-// {
-// 	t_data	data;
+int	main(void)
+{
+	t_data	data;
 
-// 	data.mlx = mlx_init();
-// 	data.win = mlx_new_window(data.mlx, 500, 500, "Hello world!");
-// 	data.img = mlx_new_image(data.mlx, 500, 500);
-// 	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
-// 	mlx_loop_hook(data.mlx, render_next_frame, &data);
-// 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
-// 	mlx_loop(data.mlx);
-// }
+	data.mlx = mlx_init();
+	data.win = mlx_new_window(data.mlx, 500, 500, "Hello world!");
+	data.img = mlx_new_image(data.mlx, 500, 500);
+	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
+	mlx_loop_hook(data.mlx, render_next_frame, &data);
+	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	mlx_loop(data.mlx);
+}
 
-
-
-DO NOT FORGET TO CHANGE GNL FUNCTION, HAVE TO EXIT AND PRINTF IN CASE OF RETURN -1
+void	put_background(t_data *data)
+{
+	int	x;
+	int	y;
+	char *path = "./textures/bricks.xpm";
+	int	img_width = 32;
+	int	img_height = 32;
+	
+	x = 0;
+	y = 0;
+	while (x < 640)
+	{
+		data->img = mlx_xpm_file_to_image(data->mlx, path, &img_width, &img_height);
+		mlx_put_image_to_window(data->mlx, data->win, data->img, x, y);
+		x += 32;
+	}
+}
