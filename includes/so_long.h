@@ -6,14 +6,12 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:05:52 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/25 20:04:40 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:52:31 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-
-# define DEBUG printf("ICI\n");
 
 // lib
 # include "libft.h"
@@ -28,5 +26,11 @@
 
 // map check
 # include "map_parsing.h"
+
+# define DEBUG printf("ICI\n");
+# define PRINTD(x) printf("%d\n", x);
+# define PRINTS(x) printf("%s\n", x);
+# define PRINTC(x) printf("%c\n", x);
+
 
 #endif

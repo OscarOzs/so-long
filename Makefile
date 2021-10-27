@@ -6,7 +6,7 @@
 #    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 16:53:12 by oozsertt          #+#    #+#              #
-#    Updated: 2021/10/26 18:49:03 by oozsertt         ###   ########.fr        #
+#    Updated: 2021/10/27 17:27:56 by oozsertt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,9 @@ OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 MFLAGS =	-framework OpenGL -framework AppKit
 CFLAGS =	
-# -Wall -Werror -Wextra
+# -Wall -Werror -Wextra 
+# -fsanitize=address -g3
+
 IFLAGS		=	$(foreach dir, $(INC_DIR), -I $(dir))
 
 all : $(NAME)
