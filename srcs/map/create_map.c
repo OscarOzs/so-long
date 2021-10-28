@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 16:01:02 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/26 16:04:12 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:30:15 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static t_bool	get_column_nbr(int fd, size_t *column_nbr)
 	return (SUCCESS);
 }
 
-static t_bool	fill_map(t_data *map, int fd)
+static t_bool	fill_map(t_mdata *map, int fd)
 {
 	int		ret;
 	char	*line;
@@ -69,7 +69,7 @@ static t_bool	fill_map(t_data *map, int fd)
 	return (SUCCESS);
 }
 
-t_data	*create_map(int fd, char *file, t_data *map)
+t_mdata	*create_map(int fd, char *file, t_mdata *map)
 {
 	size_t		column_nbr;
 	size_t		line_nbr;

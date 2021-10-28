@@ -6,13 +6,13 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 16:33:07 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/26 14:24:58 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:30:24 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static t_bool	check_left(int i, int j, t_data *map)
+static t_bool	check_left(int i, int j, t_mdata *map)
 {
 	int	x;
 	int	y;
@@ -28,7 +28,7 @@ static t_bool	check_left(int i, int j, t_data *map)
 	return (ERROR);
 }
 
-static t_bool	check_right(int i, int j, t_data *map)
+static t_bool	check_right(int i, int j, t_mdata *map)
 {
 	int	x;
 	int	y;
@@ -48,7 +48,7 @@ static t_bool	check_right(int i, int j, t_data *map)
 	return (ERROR);
 }
 
-static t_bool	check_down(int i, int j, t_data *map)
+static t_bool	check_down(int i, int j, t_mdata *map)
 {
 	int	x;
 	int	y;
@@ -68,7 +68,7 @@ static t_bool	check_down(int i, int j, t_data *map)
 	return (ERROR);
 }
 
-static t_bool	check_up(int i, int j, t_data *map)
+static t_bool	check_up(int i, int j, t_mdata *map)
 {
 	int	x;
 	int	y;
@@ -88,7 +88,7 @@ static t_bool	check_up(int i, int j, t_data *map)
 	return (ERROR);
 }
 
-t_bool	cross_check(t_data *map)
+t_bool	cross_check(t_mdata *map)
 {
 	int	i;
 	int	j;

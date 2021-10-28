@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 16:35:34 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/28 13:13:27 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:28:23 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ typedef struct	s_map_data
 	int	exit_nbr;
 	int	collectibles_nbr;
 	int	monster_nbr;
-}				t_data;
+}				t_mdata;
 
 #endif
