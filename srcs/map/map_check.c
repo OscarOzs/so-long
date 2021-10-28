@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 18:23:14 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/27 17:27:22 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:15:36 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static t_bool	is_char(t_data *map, char c)
 			map->exit_nbr++;
 		else if (c == 'C')
 			map->collectibles_nbr++;
+		else if (c == 'M')
+			map->monster_nbr++;
 	}
 	else if (c != '1')
 		return (ERROR);
