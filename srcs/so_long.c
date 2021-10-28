@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 19:41:00 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/28 13:26:42 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:46:04 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,22 @@ typedef struct	s_mlx_data
 	int		endian;
 }				t_data;
 
-void	my_mlx_pixel_put(t_mlxdata *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_data *img, int x, int y, int color)
 {
-	int		*dst;
+	char		*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
 
-// void	render_next_frame(t_mlxdata *data)
+// void	render_next_frame(t_mdata *data)
 // {
 // 	
 // }
 
 int main(int ac, char **av)
 {
-	t_data		map;
+	t_mdata		map;
 	t_data		img;
 
 	if (arg_check(ac, av[1], &map) == ERROR)
@@ -58,7 +58,7 @@ int main(int ac, char **av)
 	// int	img_width = 32;
 	// int	img_height = 32;
 	// char	*pixel;
-	// t_mlxdata		sprite;
+	// t_mdata		sprite;
 
 	// sprite.img_ptr = mlx_xpm_file_to_image(sprite.mlx_ptr, brick_path, &img_width, &img_height);
 	// sprite.addr = mlx_get_data_addr(sprite.img_ptr, &sprite.bits_per_pixel, &sprite.line_length,
@@ -68,6 +68,6 @@ int main(int ac, char **av)
 	// *(int*)pixel = *(int*)offset;
 	
 	// mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img_ptr, 0, 0);
-	// mlx_loop(data.mlx_ptr);
+	mlx_loop(img.mlx_ptr);
 	return (SUCCESS);
 }
