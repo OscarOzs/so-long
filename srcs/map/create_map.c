@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 16:01:02 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/28 13:30:15 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:49:27 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ t_mdata	*create_map(int fd, char *file, t_mdata *map)
 	if (get_column_nbr(fd, &column_nbr) == ERROR)
 		return (NULL);
 	map->line_len = column_nbr;
+	map->column_nbr = column_nbr;
 	if (ft_open_rdonly(&fd, file) == ERROR)
 		return (NULL);
 	if (fill_map(map, fd) == ERROR)
