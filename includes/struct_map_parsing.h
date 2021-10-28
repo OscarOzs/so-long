@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_map_check.h                                 :+:      :+:    :+:   */
+/*   struct_map_parsing.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 16:35:34 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/25 20:00:02 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:13:27 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct	s_map_data
 	int	position_nbr;
 	int	exit_nbr;
 	int	collectibles_nbr;
+	int	monster_nbr;
 }				t_data;
 
 #endif
