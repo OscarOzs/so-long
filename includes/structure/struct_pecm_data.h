@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parsing.h                                      :+:      :+:    :+:   */
+/*   struct_pecm_data.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 16:55:48 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/31 14:09:02 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/10/29 16:33:42 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/10/31 13:42:39 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_CHECK_H
-# define MAP_CHECK_H
+#ifndef STRUCT_PECM_DATA_H
+# define STRUCT_PECM_DATA_H
 
-t_bool	arg_check(int ac, char *str, t_map *map);
-t_bool	map_check(t_map *map, char *file);
-t_map	*create_map(int fd, char *file, t_map *map);
-t_bool	cross_check(t_map *map);
-t_bool	final_check(t_map *map);
+typedef struct	s_pecm_data
+{
+	char	pecm;
+	int		x;
+	int		y;
+}				t_pecm;
 
 #endif

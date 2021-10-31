@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_map_parsing.h                               :+:      :+:    :+:   */
+/*   movements.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/13 16:35:34 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/28 13:28:23 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/10/31 19:20:23 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/10/31 19:29:49 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_MAP_CHECK_H
-# define STRUCT_MAP_CHECK_H
+#ifndef MOVEMENTS_H
+# define MOVEMENTS_H
 
-typedef struct	s_map_data
-{
-	char	**map;
-	int	line_len;
-	int	line_nbr;
-	int	column_nbr;
-	int	position_nbr;
-	int	exit_nbr;
-	int	collectibles_nbr;
-	int	monster_nbr;
-}				t_mdata;
+void	move_up(t_engine *engine, int x, int y);
+void	move_down(t_engine *engine, int x, int y);
+void	move_right(t_engine *engine, int x, int y);
+void	move_left(t_engine *engine, int x, int y);
 
 #endif

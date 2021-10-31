@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parsing.h                                      :+:      :+:    :+:   */
+/*   free_engine.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 16:55:48 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/31 14:09:02 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/10/31 18:00:48 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/10/31 18:03:55 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_CHECK_H
-# define MAP_CHECK_H
+#include "so_long.h"
 
-t_bool	arg_check(int ac, char *str, t_map *map);
-t_bool	map_check(t_map *map, char *file);
-t_map	*create_map(int fd, char *file, t_map *map);
-t_bool	cross_check(t_map *map);
-t_bool	final_check(t_map *map);
+void	free_engine(t_engine *engine)
+{
+	int	i;
 
-#endif
+	free(engine->sprite);
+	free(engine->pecm_info);
+	free(engine->final_img);
+	i = 0;
+	while (engine->map->map[i] != NULL)
+	{
+		free(engine->map->map[i]);
+		i++;
+	}
+	free(engine->map);
+	free(engine);
+}

@@ -6,13 +6,13 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 18:23:14 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/28 13:34:03 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/31 14:11:26 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static t_bool	is_map_square(t_mdata *map)
+static t_bool	is_map_square(t_map *map)
 {
 	size_t	line_len;
 	int		i;
@@ -32,7 +32,7 @@ static t_bool	is_map_square(t_mdata *map)
 	return (SUCCESS);
 }
 
-static t_bool	is_char(t_mdata *map, char c)
+static t_bool	is_char(t_map *map, char c)
 {
 	if (c == 'P' || c == 'E' || c == 'C'
 		|| c == '0' || c == 'M')
@@ -51,7 +51,7 @@ static t_bool	is_char(t_mdata *map, char c)
 	return (SUCCESS);
 }
 
-static t_bool	check_char(t_mdata *map)
+static t_bool	check_char(t_map *map)
 {
 	int		i;
 	int		j;
@@ -71,7 +71,7 @@ static t_bool	check_char(t_mdata *map)
 	return (SUCCESS);
 }
 
-t_bool	map_check(t_mdata *map, char *file)
+t_bool	map_check(t_map *map, char *file)
 {
 	int		fd;
 

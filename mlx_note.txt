@@ -17,33 +17,30 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-int	main(void)
+int	test(void	*param)
 {
-	t_data	data;
+	t_engine	*engine;
+	int		width = 32;
+	int		height = 32;
+	int		x = 0;
+	int		y = 0;
+	int		i = 0;
+	int		j = 0;
+	char	*text_pixel;
 
-	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, 500, 500, "Hello world!");
-	data.img = mlx_new_image(data.mlx, 500, 500);
-	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
-	mlx_loop_hook(data.mlx, render_next_frame, &data);
-	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
-	mlx_loop(data.mlx);
-}
-
-void	put_background(t_data *data)
-{
-	int	x;
-	int	y;
-	char *path = "./textures/bricks.xpm";
-	int	img_width = 32;
-	int	img_height = 32;
-	
-	x = 0;
-	y = 0;
-	while (x < 640)
+	engine = (t_engine *)param;
+	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->sprite->mlx_ptr, "./textures/gladiator.xpm", &width, &height); // catch texture
+	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr, &engine->sprite->bits_per_pixel, &engine->sprite->line_length, &engine->sprite->endian); // catch pixel de texture
+	while (y < 32 && engine->final_img->keycode == 'w')
 	{
-		data->img = mlx_xpm_file_to_image(data->mlx, path, &img_width, &img_height);
-		mlx_put_image_to_window(data->mlx, data->win, data->img, x, y);
-		x += 32;
+		while (x < 32)
+		{
+			text_pixel = engine->sprite->addr + (y * engine->sprite->line_length + x * (engine->sprite->bits_per_pixel / 8)); // put text_pixel sur addr de texture
+			my_mlx_pixel_put(engine->final_img, x + i, y + j, text_pixel); // put text_pixel sur addr de image
+			x++;
+		}
+		x = 0;
+		y++;
 	}
+	mlx_put_image_to_window(engine->final_img->mlx_ptr, engine->final_img->win_ptr, engine->final_img->img_ptr, 0, 0);
 }

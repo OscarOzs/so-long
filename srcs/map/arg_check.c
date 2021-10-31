@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:49:03 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/28 13:32:56 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/31 18:16:41 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static t_bool	check_file(char *str)
 	return (SUCCESS);
 }
 
-static void	set_map_struct(t_mdata *map)
+static void	set_map_struct(t_map *map)
 {
 	map->map = NULL;
 	map->line_len = 0;
@@ -64,9 +64,10 @@ static void	set_map_struct(t_mdata *map)
 	map->exit_nbr = 0;
 	map->collectibles_nbr = 0;
 	map->monster_nbr = 0;
+	map->move_count = 0;
 }
 
-t_bool	arg_check(int ac, char *str, t_mdata *map)
+t_bool	arg_check(int ac, char *str, t_map *map)
 {
 	if (ac != 2)
 	{

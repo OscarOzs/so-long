@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parsing.h                                      :+:      :+:    :+:   */
+/*   struct_img.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 16:55:48 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/31 14:09:02 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/10/31 13:17:49 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/10/31 13:20:36 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_CHECK_H
-# define MAP_CHECK_H
+#ifndef STRUCT_IMG_H
+# define STRUCT_IMG_H
 
-t_bool	arg_check(int ac, char *str, t_map *map);
-t_bool	map_check(t_map *map, char *file);
-t_map	*create_map(int fd, char *file, t_map *map);
-t_bool	cross_check(t_map *map);
-t_bool	final_check(t_map *map);
+typedef struct	s_mlx_img_data
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	void	*img_ptr;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	char	keycode;
+}				t_img;
 
 #endif

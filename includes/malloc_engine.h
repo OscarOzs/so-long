@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parsing.h                                      :+:      :+:    :+:   */
+/*   malloc_engine.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 16:55:48 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/31 14:09:02 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/10/31 13:36:57 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/10/31 18:04:04 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_CHECK_H
-# define MAP_CHECK_H
+#ifndef MALLOC_ENGINE_H
+# define MALLOC_ENGINE_H
 
-t_bool	arg_check(int ac, char *str, t_map *map);
-t_bool	map_check(t_map *map, char *file);
-t_map	*create_map(int fd, char *file, t_map *map);
-t_bool	cross_check(t_map *map);
-t_bool	final_check(t_map *map);
+t_engine	*malloc_engine(t_engine *engine);
+void		free_engine(t_engine *engine);
 
 #endif

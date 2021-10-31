@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:05:52 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/27 17:52:31 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/10/31 19:20:59 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,25 @@
 
 // struct
 # include "struct_map_parsing.h"
-
+# include "struct_img.h"
+# include "struct_pecm_data.h"
+# include "struct_engine.h"
+# include "malloc_engine.h"
 
 // map check
 # include "map_parsing.h"
+
+// events
+# include "events.h"
+
+// movements
+# include "movements.h"
+
+# include "set_next_frame.h"
 
 # define DEBUG printf("ICI\n");
 # define PRINTD(x) printf("%d\n", x);
 # define PRINTS(x) printf("%s\n", x);
 # define PRINTC(x) printf("%c\n", x);
-
 
 #endif

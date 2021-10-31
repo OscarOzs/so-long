@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parsing.h                                      :+:      :+:    :+:   */
+/*   events.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 16:55:48 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/31 14:09:02 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/10/31 19:16:52 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/10/31 19:58:38 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_CHECK_H
-# define MAP_CHECK_H
+#ifndef EVENTS_H
+# define EVENTS_H
 
-t_bool	arg_check(int ac, char *str, t_map *map);
-t_bool	map_check(t_map *map, char *file);
-t_map	*create_map(int fd, char *file, t_map *map);
-t_bool	cross_check(t_map *map);
-t_bool	final_check(t_map *map);
+void	free_space_event(t_map *map, int x, int y);
+void	exit_event(t_engine *engine);
+void	collectibles_event(t_map *map, int x, int y);
+void	monster_event(t_engine *engine);
+void	quit_event(t_engine *engine);
 
 #endif
