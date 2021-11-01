@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:05:52 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/31 19:20:59 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/01 13:14:48 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 // movements
 # include "movements.h"
 
-# include "set_next_frame.h"
+# include "render_next_frame.h"
 
 # define DEBUG printf("ICI\n");
 # define PRINTD(x) printf("%d\n", x);

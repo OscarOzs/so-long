@@ -6,13 +6,11 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 16:08:53 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/31 20:21:48 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/01 19:18:57 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int ret = 0;
 
 static int	get_player_pos(t_map *map, int *x, int *y)
 {
@@ -44,44 +42,20 @@ static void	set_map(t_engine *engine)
 
 	get_player_pos(engine->map, &x, &y);
 	if (engine->final_img->keycode == 'w')
-	{
 		move_up(engine, x, y);
-		ret = 1;
-	}
 	else if (engine->final_img->keycode == 's')
-	{
 		move_down(engine, x, y);
-		ret = 1;
-	}
 	else if (engine->final_img->keycode == 'd')
-	{
 		move_right(engine, x, y);
-		ret = 1;
-	}
 	else if (engine->final_img->keycode == 'a')
-	{
 		move_left(engine, x, y);
-		ret = 1;
-	}
 	else if (engine->final_img->keycode == 'e')
-	{
 		quit_event(engine);
-		ret = 1;
-	}
+	engine->final_img->keycode = '0';
 }
 
-int	set_next_frame(t_engine *engine)
+int	render_next_frame(t_engine *engine)
 {
 	set_map(engine);
-	if (ret == 1)
-	{
-		int i = 0;
-		while (engine->map->map[i] != NULL)
-		{
-			printf("%s\n", engine->map->map[i]);
-			i++;
-		}
-		ret = 0;
-	}
-	engine->final_img->keycode = '0';
+	put_next_frame(engine);
 }
