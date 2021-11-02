@@ -6,11 +6,11 @@
 #    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 16:53:12 by oozsertt          #+#    #+#              #
-#    Updated: 2021/10/27 17:27:56 by oozsertt         ###   ########.fr        #
+#    Updated: 2021/11/02 15:22:52 by oozsertt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so-long
+NAME = so_long
 FT_NAME = libft.a
 MLX_NAME = libmlx.a
 
@@ -37,7 +37,6 @@ OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 MFLAGS =	-framework OpenGL -framework AppKit
 CFLAGS =	
 # -Wall -Werror -Wextra 
-# -fsanitize=address -g3
 
 IFLAGS		=	$(foreach dir, $(INC_DIR), -I $(dir))
 

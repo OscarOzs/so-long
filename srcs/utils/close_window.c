@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_img.h                                       :+:      :+:    :+:   */
+/*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/31 13:17:49 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/02 14:25:05 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/11/02 14:22:45 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/11/02 15:22:07 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_IMG_H
-# define STRUCT_IMG_H
+#include "so_long.h"
 
-typedef struct	s_mlx_img_data
+int	close_window(int keycode, t_engine *engine)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	void	*img_ptr;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	char	keycode;
-	int		red_cross;
-}				t_img;
-
-#endif
+	exit(EXIT_SUCCESS);
+	return (TRUE);
+}

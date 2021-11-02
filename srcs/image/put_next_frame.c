@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 13:24:44 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/01 19:14:26 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/02 15:39:39 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 static void	check_char(t_engine *engine ,char c, int y_pos, int x_pos)
 {
+	if (c == '0' || c == 'P' || c == 'M' || c == 'E')
+		put_background_sprite_to_image(engine, y_pos, x_pos);
 	if (c == '1')
 		put_wall_sprite_to_image(engine, y_pos, x_pos);
-	else if (c == '0')
-		put_background_sprite_to_image(engine, y_pos, x_pos);
 	else if (c == 'P')
 		put_player_sprite_to_image(engine, y_pos, x_pos);
 	else if (c == 'C')

@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:05:52 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/01 13:14:48 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/02 14:26:33 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@
 # include "struct_pecm_data.h"
 # include "struct_engine.h"
 # include "malloc_engine.h"
+
+// utils
+# include "utils.h"
 
 // map check
 # include "map_parsing.h"

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_monster_sprite.c                               :+:      :+:    :+:   */
+/*   put_monster_sprite_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 14:44:59 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/01 18:24:55 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/02 16:11:29 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	put_monster_sprite_to_image(t_engine *engine, int i, int j)
 		while (x < 32)
 		{
 			text_pixel = engine->sprite->addr + (y * engine->sprite->line_length + x * (engine->sprite->bits_per_pixel / 8)); // put text_pixel sur addr de texture
+			if (text_pixel[0] != 0 && text_pixel[1] != 0 && text_pixel[2] != 0)
 			my_mlx_pixel_put(engine->final_img, x + i, y + j, text_pixel); // put text_pixel sur addr de image
 			x++;
 		}
