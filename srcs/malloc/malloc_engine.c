@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 13:35:00 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/31 18:01:15 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:27:20 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ t_engine	*malloc_engine(t_engine *engine)
 		return (NULL);
 	engine->map = (t_map *)malloc(sizeof(t_map) * 1);
 	if (engine->map == NULL)
-		return (NULL);
-	engine->pecm_info = (t_pecm *)malloc(sizeof(t_pecm) * 1);
-	if (engine->pecm_info == NULL)
 		return (NULL);
 	return (engine);
 }

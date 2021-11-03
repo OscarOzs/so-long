@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 19:41:00 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/02 15:36:59 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:18:09 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int main(int ac, char **av)
 	&(engine->final_img->endian));
 	mlx_key_hook(engine->final_img->win_ptr, set_keycode, engine->final_img);
 	mlx_hook(engine->final_img->win_ptr, 17, 1L<<17, close_window, engine);
+	engine->sprite->sprite_anim = 0;
 	mlx_loop_hook(engine->final_img->mlx_ptr, render_next_frame, engine);
 	mlx_loop(engine->final_img->mlx_ptr);
 	return (SUCCESS);

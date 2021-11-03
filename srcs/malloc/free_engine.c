@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 18:00:48 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/31 18:03:55 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:27:02 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	free_engine(t_engine *engine)
 	int	i;
 
 	free(engine->sprite);
-	free(engine->pecm_info);
 	free(engine->final_img);
 	i = 0;
 	while (engine->map->map[i] != NULL)

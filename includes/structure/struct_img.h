@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 13:17:49 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/02 14:25:05 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:17:07 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	s_mlx_img_data
 	int		line_length;
 	int		endian;
 	char	keycode;
-	int		red_cross;
+	int		sprite_anim;
 }				t_img;
 
 #endif

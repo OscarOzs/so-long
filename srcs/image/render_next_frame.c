@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_next_frame.c                                   :+:      :+:    :+:   */
+/*   render_next_frame.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 16:08:53 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/02 15:39:37 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:23:35 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	get_player_pos(t_map *map, int *x, int *y)
+static void	get_player_pos(t_map *map, int *x, int *y)
 {
 	int	i;
 	int	j;
@@ -27,7 +27,6 @@ static int	get_player_pos(t_map *map, int *x, int *y)
 			{
 				*x = i;
 				*y = j;
-				return (SUCCESS);
 			}
 			j++;
 		}
@@ -56,6 +55,8 @@ static void	set_map(t_engine *engine)
 
 int	render_next_frame(t_engine *engine)
 {
+	engine->sprite->sprite_anim++;
 	set_map(engine);
 	put_next_frame(engine);
+	return (SUCCESS);
 }
