@@ -6,13 +6,13 @@
 #    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 16:53:12 by oozsertt          #+#    #+#              #
-#    Updated: 2021/11/02 19:07:50 by oozsertt         ###   ########.fr        #
+#    Updated: 2021/11/03 18:29:40 by oozsertt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 FT_NAME = libft.a
-MLX_NAME = libmlx.a
+MLX_NAME = libmlx_Linux.a
 
 SRCS_PATH =	$(shell find srcs -type d)
 
@@ -34,18 +34,24 @@ SRCS = 	$(foreach dir, $(SRCS_PATH), $(foreach file, $(wildcard $(dir)/*.c), $(n
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
-MFLAGS =	-framework OpenGL -framework AppKit
+LIB = ft mlx_Linux
+
+MFLAGS =	-lXext -lX11 -lm
 CFLAGS =	-Wall -Werror -Wextra
 BFLAGS =	-DBONUS=1
 NOBFLAGS =	-DBONUS=0
 
 IFLAGS		=	$(foreach dir, $(INC_DIR), -I $(dir))
 
+LFLAGS		=	$(foreach dir, $(LIB_DIR), -L $(dir)) \
+				$(foreach lib, $(LIB), -l $(lib)) \
+				$(MFLAGS)
+
 all :
 	@make BONUS=$(NOBFLAGS) $(NAME)
 
 $(NAME) : install $(OBJS)
-	@cc $(CFLAGS) $(BONUS) $(OBJS) $(MFLAGS) $(FT_DIR)/$(FT_NAME) $(MLX_DIR)/$(MLX_NAME) -o $(NAME)
+	@cc $(CFLAGS) $(BONUS) $(OBJS) $(LFLAGS) -o $(NAME)
 	@echo "Executable successfully created\n"
 
 $(OBJ_DIR)/%.o : %.c | $(BUILD) # add $(SRCS_PATH)/ before %.c

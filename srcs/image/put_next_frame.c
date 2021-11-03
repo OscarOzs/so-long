@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 13:24:44 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/03 15:03:50 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/03 16:43:31 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ static void	check_char(t_engine *engine ,char c, int y_pos, int x_pos)
 		put_exit_sprite_to_image(engine, y_pos, x_pos);
 	else if (c == 'E' && engine->map->collectibles_nbr == 0)
 		put_exitopen_sprite_to_image(engine, y_pos, x_pos);
-	else if (c == 'M' && BONUS == 1 && engine->sprite->sprite_anim == 5)
-	{
-		if (put_patrol_monster_sprite(engine, y_pos, x_pos) == ERROR)
-			put_monster_sprite_to_image(engine, y_pos, x_pos);
-	}
+	// else if (c == 'M' && BONUS == 1 && engine->sprite->sprite_anim == 5)
+	// {
+	// 	if (put_patrol_monster_sprite(engine, y_pos, x_pos) == ERROR)
+	// 		put_monster_sprite_to_image(engine, y_pos, x_pos);
+	// }
 	else if (c == 'M' && BONUS == 0)
 		put_monster_sprite_to_image(engine, y_pos, x_pos);
 }

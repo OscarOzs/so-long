@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 16:01:02 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/31 14:10:50 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/03 19:02:10 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static t_bool	get_column_nbr(int fd, size_t *column_nbr)
 
 	if (get_next_line(fd, &line) == ERROR)
 		return (ERROR);
-	free(line);
 	len = ft_strlen(line);
+	free(line);
 	close(fd);
 	*column_nbr = len;
 	return (SUCCESS);
@@ -60,9 +60,9 @@ static t_bool	fill_map(t_map *map, int fd)
 		ret = get_next_line(fd, &line);
 		if (ret == ERROR)
 			return (ERROR);
-		free(line);
 		map->map[i] = ft_strdup(line);
 		ft_malloc_failed(map->map[i]);
+		free(line);
 		i++;
 	}
 	close(fd);
@@ -94,5 +94,6 @@ t_map	*create_map(int fd, char *file, t_map *map)
 		return (NULL);
 	if (fill_map(map, fd) == ERROR)
 		return (NULL);
+
 	return (map);
 }

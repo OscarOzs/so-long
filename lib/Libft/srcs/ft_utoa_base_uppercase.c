@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 16:26:24 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/05 15:04:23 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/03 17:25:24 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	place_in_base(long nbr, int len_base)
 char	*ft_utoa_base_uppercase(unsigned int n, char *base)
 {
 	char	*str;
-	size_t	len_str;
+	int		len_str;
 	size_t	len_base;
 	long	nbr;
 
