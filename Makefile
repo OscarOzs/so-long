@@ -6,7 +6,7 @@
 #    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 16:53:12 by oozsertt          #+#    #+#              #
-#    Updated: 2021/11/02 15:22:52 by oozsertt         ###   ########.fr        #
+#    Updated: 2021/11/02 19:07:50 by oozsertt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,19 +35,21 @@ SRCS = 	$(foreach dir, $(SRCS_PATH), $(foreach file, $(wildcard $(dir)/*.c), $(n
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 MFLAGS =	-framework OpenGL -framework AppKit
-CFLAGS =	
-# -Wall -Werror -Wextra 
+CFLAGS =	-Wall -Werror -Wextra
+BFLAGS =	-DBONUS=1
+NOBFLAGS =	-DBONUS=0
 
 IFLAGS		=	$(foreach dir, $(INC_DIR), -I $(dir))
 
-all : $(NAME)
+all :
+	@make BONUS=$(NOBFLAGS) $(NAME)
 
 $(NAME) : install $(OBJS)
-	@cc $(CFLAGS) $(OBJS) $(MFLAGS) $(FT_DIR)/$(FT_NAME) $(MLX_DIR)/$(MLX_NAME) -o $(NAME)
+	@cc $(CFLAGS) $(BONUS) $(OBJS) $(MFLAGS) $(FT_DIR)/$(FT_NAME) $(MLX_DIR)/$(MLX_NAME) -o $(NAME)
 	@echo "Executable successfully created\n"
 
 $(OBJ_DIR)/%.o : %.c | $(BUILD) # add $(SRCS_PATH)/ before %.c
-	@cc $(CFLAGS) -c $< $(IFLAGS) -o $@
+	@cc $(CFLAGS) $(BONUS) -c $< $(IFLAGS) -o $@
 
 $(BUILD):
 	@mkdir $@ $(OBJ_DIR)
@@ -73,5 +75,8 @@ clean :
 fclean : clean
 	@rm -rf $(NAME)
 	@echo "Executable removed\n"
+
+bonus : fclean
+	@make BONUS=$(BFLAGS) $(NAME)
 
 re : fclean all
