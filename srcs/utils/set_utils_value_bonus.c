@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   set_utils_value_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 14:22:45 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/05 18:58:39 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/11/05 14:18:47 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/11/05 14:20:33 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	close_window(t_engine *engine)
+void	set_bonus_utils_value(t_engine *engine)
 {
-	free_engine(engine);
-	exit(EXIT_SUCCESS);
-	return (TRUE);
+	engine->sprite->sprite_anim = 0;
+	engine->sprite->sprite_anim_monster = 0;
+	engine->map->move_count = 0;
 }

@@ -6,17 +6,22 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 18:42:03 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/31 19:58:27 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/05 16:42:17 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	collectibles_event(t_map *map, int x, int y)
+void	collectibles_event(t_engine *engine, int x, int y)
 {
-	map->move_count++;
-	map->collectibles_nbr--;
-	map->map[x][y] = 'P';
+	engine->map->move_count++;
+	if (BONUS == 0)
+		printf("%d\n", engine->map->move_count);
+	engine->map->collectibles_nbr--;
+	engine->map->map[x][y] = 'P';
+	put_player_sprite_to_image(engine, y * 32, x * 32);
+	if (engine->map->collectibles_nbr == 0)
+		find_and_put_exitopen_sprite(engine);
 }
 
 void	exit_event(t_engine *engine)
@@ -33,10 +38,13 @@ void	monster_event(t_engine *engine)
 	exit(EXIT_SUCCESS);
 }
 
-void	free_space_event(t_map *map, int x, int y)
+void	free_space_event(t_engine *engine, int x, int y)
 {
-	map->move_count++;
-	map->map[x][y] = 'P';
+	engine->map->move_count++;
+	if (BONUS == 0)
+		printf("%d\n", engine->map->move_count);
+	engine->map->map[x][y] = 'P';
+	put_player_sprite_to_image(engine, y * 32, x * 32);
 }
 
 void	quit_event(t_engine *engine)

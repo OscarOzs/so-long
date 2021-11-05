@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:36:18 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/03 14:38:02 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/04 14:32:37 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void put_collectible1_sprite_to_image(t_engine *engine, int i, int j)
 
 	width = 32;
 	height = 32;
-	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->sprite->mlx_ptr, "./textures/Collectibles/Coin1.xpm", &width, &height); // catch texture
+	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->final_img->mlx_ptr, "./textures/Collectibles/Coin1.xpm", &width, &height); // catch texture
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr, &engine->sprite->bits_per_pixel, &engine->sprite->line_length, &engine->sprite->endian); // catch pixel de texture
 	y = 0;
 	while (y < 32)
@@ -49,7 +49,7 @@ void put_collectible2_sprite_to_image(t_engine *engine, int i, int j)
 
 	width = 32;
 	height = 32;
-	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->sprite->mlx_ptr, "./textures/Collectibles/Coin2.xpm", &width, &height); // catch texture
+	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->final_img->mlx_ptr, "./textures/Collectibles/Coin2.xpm", &width, &height); // catch texture
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr, &engine->sprite->bits_per_pixel, &engine->sprite->line_length, &engine->sprite->endian); // catch pixel de texture
 	y = 0;
 	while (y < 32)
@@ -76,7 +76,7 @@ void put_collectible3_sprite_to_image(t_engine *engine, int i, int j)
 
 	width = 32;
 	height = 32;
-	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->sprite->mlx_ptr, "./textures/Collectibles/Coin3.xpm", &width, &height); // catch texture
+	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->final_img->mlx_ptr, "./textures/Collectibles/Coin3.xpm", &width, &height); // catch texture
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr, &engine->sprite->bits_per_pixel, &engine->sprite->line_length, &engine->sprite->endian); // catch pixel de texture
 	y = 0;
 	while (y < 32)
@@ -103,7 +103,7 @@ void put_collectible4_sprite_to_image(t_engine *engine, int i, int j)
 
 	width = 32;
 	height = 32;
-	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->sprite->mlx_ptr, "./textures/Collectibles/Coin4.xpm", &width, &height); // catch texture
+	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->final_img->mlx_ptr, "./textures/Collectibles/Coin4.xpm", &width, &height); // catch texture
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr, &engine->sprite->bits_per_pixel, &engine->sprite->line_length, &engine->sprite->endian); // catch pixel de texture
 	y = 0;
 	while (y < 32)
@@ -130,7 +130,7 @@ void put_collectible5_sprite_to_image(t_engine *engine, int i, int j)
 
 	width = 32;
 	height = 32;
-	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->sprite->mlx_ptr, "./textures/Collectibles/Coin5.xpm", &width, &height); // catch texture
+	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->final_img->mlx_ptr, "./textures/Collectibles/Coin5.xpm", &width, &height); // catch texture
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr, &engine->sprite->bits_per_pixel, &engine->sprite->line_length, &engine->sprite->endian); // catch pixel de texture
 	y = 0;
 	while (y < 32)

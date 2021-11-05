@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 19:41:00 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/03 18:31:22 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/05 19:56:10 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main(int ac, char **av)
 	if (arg_check(ac, av[1], engine->map) == ERROR)
 		exit (EXIT_FAILURE);
 	engine->final_img->mlx_ptr = mlx_init();
-	engine->sprite->mlx_ptr = mlx_init();
+	
 	engine->final_img->win_ptr = mlx_new_window(engine->final_img->mlx_ptr,
 	(engine->map->column_nbr * 32), (engine->map->line_nbr * 32), "so_long");
 	engine->final_img->img_ptr = mlx_new_image(engine->final_img->mlx_ptr,
@@ -55,8 +55,11 @@ int main(int ac, char **av)
 	&(engine->final_img->endian));
 	mlx_key_hook(engine->final_img->win_ptr, set_keycode, engine->final_img);
 	mlx_hook(engine->final_img->win_ptr, 17, 1L<<17, close_window, engine);
-	engine->sprite->sprite_anim = 0;
+	if (BONUS == 1)
+		set_bonus_utils_value(engine);
+	put_whole_map(engine);
 	mlx_loop_hook(engine->final_img->mlx_ptr, render_next_frame, engine);
 	mlx_loop(engine->final_img->mlx_ptr);
 	return (SUCCESS);
 }
+ // leaks, faire pas a pas avec free_engine et exit (1)

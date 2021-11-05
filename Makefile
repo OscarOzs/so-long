@@ -6,13 +6,11 @@
 #    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 16:53:12 by oozsertt          #+#    #+#              #
-#    Updated: 2021/11/03 18:29:40 by oozsertt         ###   ########.fr        #
+#    Updated: 2021/11/05 17:22:35 by oozsertt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-FT_NAME = libft.a
-MLX_NAME = libmlx_Linux.a
 
 SRCS_PATH =	$(shell find srcs -type d)
 
@@ -51,7 +49,7 @@ all :
 	@make BONUS=$(NOBFLAGS) $(NAME)
 
 $(NAME) : install $(OBJS)
-	@cc $(CFLAGS) $(BONUS) $(OBJS) $(LFLAGS) -o $(NAME)
+	@cc $(CFLAGS) -ggdb3 $(BONUS) $(OBJS) $(LFLAGS) -o $(NAME)
 	@echo "Executable successfully created\n"
 
 $(OBJ_DIR)/%.o : %.c | $(BUILD) # add $(SRCS_PATH)/ before %.c

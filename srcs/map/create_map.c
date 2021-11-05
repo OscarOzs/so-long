@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 16:01:02 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/03 19:02:10 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:53:02 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,5 @@ t_map	*create_map(int fd, char *file, t_map *map)
 		return (NULL);
 	if (fill_map(map, fd) == ERROR)
 		return (NULL);
-
 	return (map);
 }

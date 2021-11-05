@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 13:30:28 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/02 18:20:27 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/04 14:36:52 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	put_wall_sprite_to_image(t_engine *engine, int i, int j)
 
 	width = 32;
 	height = 32;	
-	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->sprite->mlx_ptr, "./textures/wall/wall.xpm", &width, &height); // catch texture
+	engine->sprite->img_ptr = mlx_xpm_file_to_image(engine->final_img->mlx_ptr, "./textures/wall/wall.xpm", &width, &height); // catch texture
 	engine->sprite->addr = mlx_get_data_addr(engine->sprite->img_ptr, &engine->sprite->bits_per_pixel, &engine->sprite->line_length, &engine->sprite->endian); // catch pixel de texture
 	y = 0;
 	while (y < 32)

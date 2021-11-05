@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_next_frame.c                                   :+:      :+:    :+:   */
+/*   put_whole_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 13:24:44 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/03 16:43:31 by oozsertt         ###   ########.fr       */
+/*   Created: 2021/11/04 12:53:22 by oozsertt          #+#    #+#             */
+/*   Updated: 2021/11/05 15:52:25 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 static void	check_char(t_engine *engine ,char c, int y_pos, int x_pos)
 {
@@ -22,23 +21,18 @@ static void	check_char(t_engine *engine ,char c, int y_pos, int x_pos)
 	else if (c == 'P')
 		put_player_sprite_to_image(engine, y_pos, x_pos);
 	else if (c == 'C')
-		put_collectibles_sprite_to_image(engine, y_pos, x_pos);
+		put_collectible_sprite_to_image(engine, y_pos, x_pos);
 	else if (c == 'E' && engine->map->collectibles_nbr != 0)
 		put_exit_sprite_to_image(engine, y_pos, x_pos);
 	else if (c == 'E' && engine->map->collectibles_nbr == 0)
 		put_exitopen_sprite_to_image(engine, y_pos, x_pos);
-	// else if (c == 'M' && BONUS == 1 && engine->sprite->sprite_anim == 5)
-	// {
-	// 	if (put_patrol_monster_sprite(engine, y_pos, x_pos) == ERROR)
-	// 		put_monster_sprite_to_image(engine, y_pos, x_pos);
-	// }
-	else if (c == 'M' && BONUS == 0)
+	else if (c == 'M' && BONUS == 1)
 		put_monster_sprite_to_image(engine, y_pos, x_pos);
 }
 
-void	put_next_frame(t_engine *engine)
+void    put_whole_map(t_engine *engine)
 {
-	int	i;
+    int	i;
 	int	j;
 	int	x_pos;
 	int	y_pos;
@@ -58,5 +52,4 @@ void	put_next_frame(t_engine *engine)
 		x_pos += 32;
 		i++;
 	}
-	mlx_put_image_to_window(engine->final_img->mlx_ptr, engine->final_img->win_ptr, engine->final_img->img_ptr, 0, 0);
 }

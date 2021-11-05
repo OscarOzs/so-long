@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:05:52 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/03 14:22:43 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:54:04 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@
 # define PRINTD(x) printf("%d\n", x);
 # define PRINTS(x) printf("%s\n", x);
 # define PRINTC(x) printf("%c\n", x);
+# define PRINTP(x) printf("%p\n", x);
 
 #endif
