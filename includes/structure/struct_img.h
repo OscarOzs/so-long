@@ -6,14 +6,14 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 13:17:49 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/04 16:05:50 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/06 19:25:06 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_IMG_H
 # define STRUCT_IMG_H
 
-typedef struct	s_mlx_img_data
+typedef struct s_mlx_img_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;

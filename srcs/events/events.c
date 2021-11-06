@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 18:42:03 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/05 16:42:17 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/06 19:01:57 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ void	collectibles_event(t_engine *engine, int x, int y)
 
 void	exit_event(t_engine *engine)
 {
+	engine->map->move_count++;
+	if (BONUS == 0)
+		printf("%d\n", engine->map->move_count);
 	free_engine(engine);
 	printf("You won !\n");
 	exit(EXIT_SUCCESS);
@@ -33,6 +36,9 @@ void	exit_event(t_engine *engine)
 
 void	monster_event(t_engine *engine)
 {
+	engine->map->move_count++;
+	if (BONUS == 0)
+		printf("%d\n", engine->map->move_count);
 	free_engine(engine);
 	printf("You lost !\n");
 	exit(EXIT_SUCCESS);

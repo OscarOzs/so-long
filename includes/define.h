@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 16:46:12 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/03 19:19:17 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/06 19:22:05 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@
 # define S_KEY 115
 # define ESC_KEY 65307
 
-typedef int t_bool;
+typedef int	t_bool;
 
 #endif
