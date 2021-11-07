@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 14:45:39 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/05 16:06:29 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/07 17:28:53 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static void	monster_move_on_player(t_engine *engine, int x, int y)
 		monster_event(engine);
 }
 
-static void call_function_patrol_monster(t_engine *engine, int x, int y)
+static void	call_function_patrol_monster(t_engine *engine, int x, int y)
 {
-	static t_bool is_wall;
-	
+	static t_bool	is_wall;
+
 	if (engine->sprite->sprite_anim_monster == 500)
 	{
 		monster_move_on_player(engine, x, y);
@@ -46,21 +46,21 @@ static void call_function_patrol_monster(t_engine *engine, int x, int y)
 	engine->sprite->sprite_anim_monster++;
 }
 
-void    set_patrol_monsters(t_engine *engine)
+void	set_patrol_monsters(t_engine *engine)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 0;
-    while (engine->map->map[i] != NULL)
-    {
-        j = 0;
-        while (engine->map->map[i][j] != '\0')
-        {
-            if (engine->map->map[i][j] == 'M')
-                call_function_patrol_monster(engine, i, j);
-            j++;
-        }
-        i++;
-    }
+	i = 0;
+	while (engine->map->map[i] != NULL)
+	{
+		j = 0;
+		while (engine->map->map[i][j] != '\0')
+		{
+			if (engine->map->map[i][j] == 'M')
+				call_function_patrol_monster(engine, i, j);
+			j++;
+		}
+		i++;
+	}
 }

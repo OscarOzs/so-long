@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 16:08:53 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/05 19:56:27 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/07 17:25:00 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ int	render_next_frame(t_engine *engine)
 		set_animated_collectibles(engine);
 		set_patrol_monsters(engine);
 	}
-	mlx_put_image_to_window(engine->final_img->mlx_ptr, engine->final_img->win_ptr,
-	engine->final_img->img_ptr, 0, 0);
+	mlx_put_image_to_window(engine->final_img->mlx_ptr,
+		engine->final_img->win_ptr, engine->final_img->img_ptr, 0, 0);
 	if (BONUS == 1)
 		put_move_count_to_image(engine);
 	return (SUCCESS);

@@ -6,13 +6,13 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 12:53:22 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/06 17:27:35 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/07 17:24:01 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	check_char(t_engine *engine ,char c, int y_pos, int x_pos)
+static void	check_char(t_engine *engine, char c, int y_pos, int x_pos)
 {
 	if (c == '0' || c == 'P' || c == 'M' || c == 'E')
 		put_background_sprite_to_image(engine, y_pos, x_pos);
@@ -30,9 +30,9 @@ static void	check_char(t_engine *engine ,char c, int y_pos, int x_pos)
 		put_monster_sprite_to_image(engine, y_pos, x_pos);
 }
 
-void    put_whole_map(t_engine *engine)
+void	put_whole_map(t_engine *engine)
 {
-    int	i;
+	int	i;
 	int	j;
 	int	x_pos;
 	int	y_pos;

@@ -6,7 +6,7 @@
 #    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 16:53:12 by oozsertt          #+#    #+#              #
-#    Updated: 2021/11/06 19:24:17 by oozsertt         ###   ########.fr        #
+#    Updated: 2021/11/07 17:54:43 by oozsertt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,18 @@ BUILD = .build
 
 vpath %.c $(foreach dir, $(SRCS_PATH), $(dir):)
 
-SRCS = 	$(foreach dir, $(SRCS_PATH), $(foreach file, $(wildcard $(dir)/*.c), $(notdir $(file))))
+SRCS = 	so_long.c \
+events.c \
+find_and_put_exitopen_sprite.c patrol_move_bonus.c put_animated_collectibles_bonus.c \
+put_background_sprite.c put_collectible_sprite.c put_exitopen_sprite.c put_exit_sprite.c \
+put_monster_sprite_bonus.c put_move_count_bonus.c put_player_sprite.c put_wall_sprite.c \
+put_whole_map.c render_next_frame.c set_animated_collectibles_bonus.c set_patrol_monster_bonus.c \
+free_engine.c malloc_engine.c \
+arg_check.c create_map.c cross_check.c final_check.c map_check.c \
+movements.c \
+close_window.c my_mlx_pixel_put.c set_utils_value_bonus.c \
+
+# $(foreach dir, $(SRCS_PATH), $(foreach file, $(wildcard $(dir)/*.c), $(notdir $(file))))
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 

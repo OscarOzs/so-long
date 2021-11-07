@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 19:30:21 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/10/20 14:45:04 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/07 16:40:15 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ char	*ft_utoa_base_uppercase(unsigned int n, char *base);
 char	*ft_utoa_base(unsigned int n, char *base);
 char	*ft_utoa(unsigned int n);
 void	ft_malloc_failed(char *str);
-t_bool  ft_open_rdonly(int *fd, char *file);
+t_bool	ft_open_rdonly(int *fd, char *file);
 
 #endif
