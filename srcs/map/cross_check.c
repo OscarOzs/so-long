@@ -6,7 +6,7 @@
 /*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 16:33:07 by oozsertt          #+#    #+#             */
-/*   Updated: 2021/11/03 19:02:12 by oozsertt         ###   ########.fr       */
+/*   Updated: 2021/11/07 19:20:17 by oozsertt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static t_bool	check_right(int i, int j, t_map *map)
 
 	x = i;
 	y = j;
-	while (y <= map->line_len)
+	while (y < map->line_len)
 	{
 		if (map->map[x][y] == '1')
 		{
@@ -55,7 +55,7 @@ static t_bool	check_down(int i, int j, t_map *map)
 
 	x = i;
 	y = j;
-	while (x <= map->line_nbr)
+	while (x < map->line_nbr)
 	{
 		if (map->map[x][y] == '1')
 		{

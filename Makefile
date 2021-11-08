@@ -6,7 +6,7 @@
 #    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 16:53:12 by oozsertt          #+#    #+#              #
-#    Updated: 2021/11/07 17:54:43 by oozsertt         ###   ########.fr        #
+#    Updated: 2021/11/07 19:22:37 by oozsertt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,6 @@ arg_check.c create_map.c cross_check.c final_check.c map_check.c \
 movements.c \
 close_window.c my_mlx_pixel_put.c set_utils_value_bonus.c \
 
-# $(foreach dir, $(SRCS_PATH), $(foreach file, $(wildcard $(dir)/*.c), $(notdir $(file))))
-
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 LIB = ft mlx_Linux
@@ -60,10 +58,10 @@ all :
 	@make BONUS=$(NOBFLAGS) $(NAME)
 
 $(NAME) : install $(OBJS)
-	@cc $(CFLAGS) -ggdb3 $(BONUS) $(OBJS) $(LFLAGS) -o $(NAME)
+	@cc $(CFLAGS) $(BONUS) $(OBJS) $(LFLAGS) -o $(NAME)
 	@echo "Executable successfully created\n"
 
-$(OBJ_DIR)/%.o : %.c | $(BUILD) # add $(SRCS_PATH)/ before %.c
+$(OBJ_DIR)/%.o : %.c | $(BUILD)
 	@cc $(CFLAGS) $(BONUS) -c $< $(IFLAGS) -o $@
 
 $(BUILD):
