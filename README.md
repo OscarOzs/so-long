@@ -6,4 +6,4 @@
 
 Map level is editable and code protected.
 
-Bonus had monster patrol and coins animation.
+Bonus had monster patrol and coins animation (make bonus).
