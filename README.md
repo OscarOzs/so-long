@@ -2,7 +2,7 @@
 
 42 School project.
 
-2D top view game in C, collect coins to exit and finish the level.
+Small 2D game developed with the miniLibX, the graphic library of the 42 school, collect coins to exit and finish the level.
 
 Map level is editable and code protected.
 
